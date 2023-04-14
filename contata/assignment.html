@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition UI</title>
+ <script>
+      function add() {
+        try {
+          const input1 = Number(document.getElementById("input1").value);
+          const input2 = Number(document.getElementById("input2").value);
+
+          if (isNaN(input1) || isNaN(input2)) {
+            throw new Error("Wrong Input: input can only be a number");
+          }
+
+          if (input1 < 5 || input2 < 5) {
+            throw new Error("Wrong Input: number is too low");
+          }
+
+          if (input1 > 10 || input2 > 10) {
+            throw new Error("Wrong Input: number is too high");
+          }
+
+          const result = input1 + input2;
+          document.getElementById("result").innerHTML = `Result: ${result}`;
+        } catch (error) {
+          document.getElementById("result").innerHTML = error.message;
+        }
+      }
+    </script>  
+
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  width: 30%;
+margin: 0 auto; 
+}
+
+label {
+  font-size: 1.2em;
+  margin-bottom: 10px; 
+}
+
+input {
+  margin-bottom: 20px; 
+}
+
+.btn {
+  margin-top: 20px; 
+}
+.answer {
+  font-weight: bold;
+  text-align: center;
+}
+
+</style>
+</head>
+  <body>
+    <div class="container">
+    <h1>Addition UI</h1>
+    <label for="input1" class="inputflex">ENTER THE NUMBER </label>
+    <input type="text" id="input1">
+    <label for="input2" class="inputflex">ENTER THE NUMBER </label>
+    <input type="text" id="input2">
+    <button onclick="add()" class="btn">Add</button>
+    </div>
+    <div id="result" class="answer"></div>
+
+   
+  </body>
+</html>
